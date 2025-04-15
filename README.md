@@ -32,5 +32,5 @@ A modern and stylish sign-up/contact form built with HTML, CSS, and JavaScript. 
 
 ---
 
-## 📁 File Structure
+
 
