@@ -11,14 +11,13 @@
 
   <marquee behavior="scroll" direction="left" class="marquee">Welcome to Our Stylish Sign-Up Page!</marquee>
 
-  <!-- Toast Notification -->
   <div id="toast" class="toast">Thank you for signing up!</div>
 
   <div class="form-wrapper">
     <h2>Sign Up Form</h2>
-    <form id="contact-form">
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="613d3f89-d888-4927-a609-99541b5d46ba" />
-      
+
       <div class="input-group">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
