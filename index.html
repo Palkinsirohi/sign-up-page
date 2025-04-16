@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +6,13 @@
   <title>Stylish Sign Up Form</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
   <marquee behavior="scroll" direction="left" class="marquee">Welcome to Our Stylish Sign-Up Page!</marquee>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Thank you for signing up!</div>
 
   <div class="form-wrapper">
     <h2>Sign Up Form</h2>
@@ -25,7 +26,7 @@
 
       <div class="input-group">
         <input type="tel" name="phone" placeholder="Phone Number" required />
-        <input type="date" name="dob" placeholder="Date of Birth" required />
+        <input type="date" name="dob" required />
       </div>
 
       <div class="input-group">
@@ -39,29 +40,10 @@
 
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
+      <p id="bottom-msg" class="bottom-msg"></p>
     </form>
   </div>
 
-  <script>
-    const form = document.getElementById("contact-form");
-
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        alert("Message sent successfully!");
-        form.reset();
-      } else {
-        alert("Something went wrong! " + result.message);
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
