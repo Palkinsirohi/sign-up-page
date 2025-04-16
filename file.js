@@ -6,7 +6,7 @@ form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const formData = new FormData(form);
-  const response = await fetch("https://api.web3forms.com/submit", {
+  const response = await fetch(form.action, {
     method: "POST",
     body: formData
   });
@@ -14,19 +14,17 @@ form.addEventListener("submit", async function (e) {
   const result = await response.json();
 
   if (result.success) {
-    // Show toast
+    // Show top-right "Thank you"
     toast.classList.add("show");
-    setTimeout(() => {
-      toast.classList.remove("show");
-    }, 3000);
+    setTimeout(() => toast.classList.remove("show"), 3000);
 
-    // Show bottom message
+    // Bottom message
     bottomMsg.textContent = "Form submitted successfully!";
     bottomMsg.style.color = "green";
-    
+
     form.reset();
   } else {
-    bottomMsg.textContent = "Submission failed. Please try again!";
+    bottomMsg.textContent = "Submission failed. Please try again.";
     bottomMsg.style.color = "red";
   }
 });
